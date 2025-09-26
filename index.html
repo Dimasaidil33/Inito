@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowTire - Semir Ban Premium</title>
+    <link rel="icon" href="tab.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+        }
+        
+        .nav-link::after { 
+            content: ''; 
+            position: absolute; 
+            width: 0; 
+            height: 2px; 
+            bottom: -5px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+            transition: width 0.3s ease-in-out; 
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .variant-button.active {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            border-color: #0ea5e9;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .feature-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.6);
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+        }
+        
+        .video-overlay {
+            background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="hidden md:block fixed top-0 left-1/2 -translate-x-1/2 mt-6 z-50">
+        <div class="glass-card flex items-center gap-8 rounded-full px-10 py-4">
+            <a href="#fitur" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Fitur</a>
+            <a href="#hasil" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Keunggulan</a>
+            <a href="#" class="mx-4">
+                <img src="logo.png" alt="GlowTire Logo" class="h-14 w-14 hover:scale-110 transition-transform duration-300">
+            </a>
+            <a href="#produk" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Produk</a>
+            <a href="#cara-pakai" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Cara Pakai</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="block md:hidden fixed top-0 w-full z-50 p-6">
+        <div class="flex justify-center">
+             <div class="glass-card rounded-full p-3">
+                <img src="logo.png" alt="GlowTire Logo" class="h-12 w-12">
+             </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="h-screen relative flex items-center justify-center overflow-hidden">
+        <video src="video.mp4" autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover"></video>
+        <div class="absolute inset-0 video-overlay z-10 bg-black/70"></div>
+        <div class="text-center z-20 p-6 max-w-6xl mx-auto">
+            <h1 class="text-5xl md:text-8xl font-black text-white leading-tight mb-8">
+                Kilau Hitam Pekat</span>,<br>
+                Tahan Lebih Lama.
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto mb-12 font-light leading-relaxed">
+                Formula premium yang memberikan efek basah (wet look) dan melindungi ban Anda dari retak dan pudar.
+            </p>
+            <a href="#produk" class="btn-primary text-white font-semibold py-4 px-12 rounded-full text-xl inline-block">
+                Lihat Produk
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Features Section -->
+        <section id="fitur" class="py-32 relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Kenapa Memilih GlowTire?</h2>
+                    <p class="text-slate-400 text-xl max-w-3xl mx-auto font-light">
+                        Keunggulan yang membuat ban Anda selalu tampil sempurna dan terlindungi.
+                    </p>
+                    <div class="section-divider w-24 mx-auto mt-8"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <div class="feature-card rounded-3xl p-8 text-center">
+                        <div class="feature-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944A12.02 12.02 0 0012 22a12.02 12.02 0 009-1.056c.343-.334.654-.682.93-1.056a11.955 11.955 0 00-1.312-8.984z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Proteksi UV & Anti Retak</h3>
+                        <p class="text-slate-400 leading-relaxed font-light">
+                            Formula canggih kami membentuk lapisan pelindung yang tangguh, menjaga karet ban dari paparan sinar UV berbahaya dan perubahan cuaca ekstrem yang bisa menyebabkan keretakan.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card rounded-3xl p-8 text-center">
+                        <div class="feature-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Kilau Wet Look Tahan Lama</h3>
+                        <p class="text-slate-400 leading-relaxed font-light">
+                            Formula kami tidak hanya memberikan kilau basah yang mewah, tetapi juga dirancang untuk bertahan lama. Tahan terhadap hujan ringan dan pencucian.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card rounded-3xl p-8 text-center">
+                        <div class="feature-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Formula Cepat Kering</h3>
+                        <p class="text-slate-400 leading-relaxed font-light">
+                            GlowTire cepat meresap dan kering, menghasilkan lapisan kilap yang rapi tanpa meninggalkan residu lengket atau cipratan (tire sling).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="hasil" class="py-32 relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Keunggulan</h2>
+                    <p class="text-slate-400 text-xl max-w-3xl mx-auto font-light">
+                        Bukan sekadar janji, ini bukti transformasi ban Anda.
+                    </p>
+                    <div class="section-divider w-24 mx-auto mt-8"></div>
+                </div>
+                
+                <div class="space-y-32">
+                    <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="w-full lg:w-1/2">
+                            <div class="glass-card rounded-3xl p-2 overflow-hidden">
+                                <img src="foto1.png" alt="Perbandingan sebelum dan sesudah" class="rounded-2xl w-full h-auto object-cover">
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 text-center lg:text-left">
+                            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                                Dari Kusam Menjadi <span class="gradient-text">Baru Seketika</span>
+                            </h3>
+                            <p class="text-slate-400 text-lg leading-relaxed font-light">
+                                Lihat perbedaan drastisnya. Sisi kanan yang telah diaplikasikan GlowTire langsung kembali hitam pekat dengan kilau elegan, sementara sisi kiri masih terlihat kusam dan tua.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                        <div class="w-full lg:w-1/2">
+                            <div class="glass-card rounded-3xl p-2 overflow-hidden">
+                                <img src="foto2.png" alt="Efek daun talas pada ban" class="rounded-2xl w-full h-auto object-cover">
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 text-center lg:text-right">
+                            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                                Tangguh Melawan <span class="gradient-text">Air & Kotoran</span>
+                            </h3>
+                            <p class="text-slate-400 text-lg leading-relaxed font-light">
+                                GlowTire menciptakan lapisan pelindung hidrofobik yang superior. Air akan membentuk butiran seperti di atas daun talas dan langsung meluncur jatuh, membawa serta kotoran dan debu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Section -->
+        <section id="produk" class="py-32 relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16 max-w-7xl mx-auto">
+                    <div class="w-full lg:w-1/2">
+                        <div class="glass-card rounded-3xl p-8">
+                            <model-viewer
+                                id="product-model"
+                                src="3D models.glb" 
+                                alt="Model 3D Botol Semir Ban GlowTire"
+                                camera-controls
+                                auto-rotate
+                                ar
+                                shadow-intensity="1"
+                                style="width: 100%; height: 500px; border-radius: 16px; --model-viewer-background-color: transparent;">
+                            </model-viewer>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 text-center lg:text-left">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                            GlowTire <span class="gradient-text">Premium</span><br>
+                            Tire Shine
+                        </h2>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed font-light">
+                            GlowTire adalah semir ban berbasis silikon premium yang diformulasikan secara khusus untuk memberikan kilau 'wet look' yang dalam dan tahan lama. Formulanya tidak lengket, cepat kering, dan tidak akan terciprat ke bodi mobil Anda.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <button id="show-black-model" class="variant-button bg-slate-700 text-slate-200 border border-slate-600 py-3 px-6 rounded-full hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all duration-300 active font-medium">
+                                White Bottle
+                            </button>
+                            <button id="show-white-model" class="variant-button bg-slate-700 text-slate-200 border border-slate-600 py-3 px-6 rounded-full hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all duration-300 font-medium">
+                                Black Bottle
+                            </button>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-5xl font-bold gradient-text">Rp 35.000</span>
+                            <span class="text-slate-400 ml-3 text-xl">/ 250ml</span>
+                        </div>
+                        
+                        <a href="#kontak" class="btn-primary text-white font-semibold py-4 px-10 rounded-full text-lg inline-block">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How to Use Section -->
+        <section id="cara-pakai" class="py-32 relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">3 Langkah Mudah</h2>
+                    <p class="text-slate-400 text-xl font-light">Dapatkan hasil maksimal dengan cara yang sangat simpel.</p>
+                    <div class="section-divider w-24 mx-auto mt-8"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="text-center">
+                        <div class="step-number w-24 h-24 rounded-full flex items-center justify-center mx-auto text-4xl font-bold text-white mb-6">1</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Bersihkan Ban</h3>
+                        <p class="text-slate-400 text-lg font-light leading-relaxed">Pastikan permukaan ban bersih dari kotoran dan kering sebelum aplikasi.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="step-number w-24 h-24 rounded-full flex items-center justify-center mx-auto text-4xl font-bold text-white mb-6">2</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Semprotkan</h3>
+                        <p class="text-slate-400 text-lg font-light leading-relaxed">Kocok botol lalu semprotkan GlowTire secara merata ke dinding ban.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="step-number w-24 h-24 rounded-full flex items-center justify-center mx-auto text-4xl font-bold text-white mb-6">3</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Ratakan & Biarkan</h3>
+                        <p class="text-slate-400 text-lg font-light leading-relaxed">Gunakan aplikator busa untuk meratakan. Biarkan kering beberapa menit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="kontak" class="py-16 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-800"></div>
+        <div class="container mx-auto text-center text-slate-400 relative z-10 px-6">
+            <h3 class="text-3xl font-bold text-white mb-6">Pesan Melalui:</h3>
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors font-medium text-lg">Instagram</a>
+                <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors font-medium text-lg">Facebook</a>
+                <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors font-medium text-lg">TikTok</a>
+                <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors font-medium text-lg">WhatsApp</a>
+            </div>
+            <div class="section-divider w-32 mx-auto mb-6"></div>
+            <p class="font-light">&copy; 2025 GlowTire. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const productModel = document.getElementById('product-model');
+        const showBlackModelBtn = document.getElementById('show-black-model');
+        const showWhiteModelBtn = document.getElementById('show-white-model');
+        const variantButtons = document.querySelectorAll('.variant-button');
+
+        function setActiveButton(activeButton) {
+            variantButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeButton.classList.add('active');
+        }
+
+        showBlackModelBtn.addEventListener('click', () => {
+            productModel.src = '3D models.glb';
+            setActiveButton(showBlackModelBtn);
+        });
+
+        showWhiteModelBtn.addEventListener('click', () => {
+            productModel.src = '3D models_white.glb';
+            setActiveButton(showWhiteModelBtn);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        setActiveButton(showBlackModelBtn);
+      });
+    </script>
+</body>
+</html>
