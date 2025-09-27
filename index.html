@@ -94,15 +94,64 @@
             background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
             height: 1px;
         }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+        }
+
+        .loading-logo {
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+
+    /* Animasi untuk Loading Screen (Fade Out) */
+#loading-overlay {
+    transition: opacity 0.5s ease-in-out; /* Durasi animasi menghilang */
+}
+#loading-overlay.hidden {
+    opacity: 0;
+}
+
+/* Animasi untuk Konten Utama (Fade In) */
+#main-content.visible {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Efek muncul dari bawah sedikit */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     </style>
 </head>
 <body>
+
+    <div id="loading-overlay" class="h-screen w-screen fixed flex items-center justify-center top-0 left-0 z-[999]" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+        <img src="logo.png" alt="GlowTire Logo" class="w-32 h-32 loading-logo">
+    </div>
+    <div id="main-content" style="display: none;">
+
     <!-- Navigation -->
     <nav class="hidden md:block fixed top-0 left-1/2 -translate-x-1/2 mt-6 z-50">
         <div class="glass-card flex items-center gap-8 rounded-full px-10 py-4">
             <a href="#fitur" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Fitur</a>
             <a href="#hasil" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Keunggulan</a>
-            <a href="#" class="mx-4">
+            <a href="" class="mx-4">
                 <img src="logo.png" alt="GlowTire Logo" class="h-14 w-14 hover:scale-110 transition-transform duration-300">
             </a>
             <a href="#produk" class="text-slate-300 hover:text-sky-400 transition-colors duration-300 relative nav-link font-medium">Produk</a>
@@ -333,7 +382,7 @@
                     <i class="fab fa-instagram"></i>
                 </a>
                 <!-- Facebook -->
-                <a href="" class="text-slate-400 hover:text-blue-500 transition-colors text-3xl" title="Facebook">
+                <a href="https://www.facebook.com/" class="text-slate-400 hover:text-blue-500 transition-colors text-3xl" title="Facebook">
                     <i class="fab fa-facebook"></i>
                 </a>
                 <!-- TikTok -->
@@ -341,7 +390,7 @@
                     <i class="fab fa-tiktok"></i>
                 </a>
                 <!-- WhatsApp -->
-                <a href="" class="text-slate-400 hover:text-green-400 transition-colors text-3xl" title="WhatsApp">
+                <a href="https://web.whatsapp.com/" class="text-slate-400 hover:text-green-400 transition-colors text-3xl" title="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
@@ -390,13 +439,27 @@
 
         setActiveButton(showBlackModelBtn);
       });
+
+// Menjalankan fungsi setelah 4000 milidetik (4 detik)
+setTimeout(function() {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const mainContent = document.getElementById('main-content');
+
+    // 1. Mulai animasi fade-out untuk loading screen
+    loadingOverlay.classList.add('hidden');
+
+    // 2. Tampilkan konten utama dan mulai animasi fade-in
+    mainContent.style.display = 'block';
+    mainContent.classList.add('visible');
+
+    // 3. Setelah animasi loading screen selesai (500ms), sembunyikan elemennya
+    // Durasi ini harus sama dengan durasi transisi di CSS
+    setTimeout(() => {
+        loadingOverlay.style.display = 'none';
+    }, 500); 
+
+}, 4000); // Waktu tunggu awal tetap 4 detik
+
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
